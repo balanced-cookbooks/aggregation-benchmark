@@ -1,0 +1,24 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+
+provisioner:
+  name: chef_solo
+  attributes:
+      citadel:
+        access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+        secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+      balanced-apt:
+        allow_unstable: true
+      postgresql:
+        version: 9.1
+
+platforms:
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    run_list:
+    - recipe[aggregation-benchmark]

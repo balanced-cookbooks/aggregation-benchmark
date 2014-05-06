@@ -1,0 +1,20 @@
+.vagrant
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
+
+# Bundler
+bin/*
+.bundle/*
+
+# intellij idea
+*.iml
+
+# eclipse
+*.project
+.kitchen/
+.kitchen.local.yml
