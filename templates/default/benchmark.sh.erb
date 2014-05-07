@@ -8,4 +8,7 @@ export NEWRELIC_FILE=/srv/benchmark/newrelic.ini
 
 cd /srv/benchmark
 source .env/bin/activate
+
 python -m benchmark.main original --init-debits $INITIAL_DEBITS --init-credits $INITIAL_CREDITS --sample $SAMPLE > /tmp/original.log
+
+python -m benchmark.main scalar --init-debits $INITIAL_DEBITS --init-credits $INITIAL_CREDITS --sample $SAMPLE > /tmp/scalar.log
