@@ -27,8 +27,8 @@ end
 
 bash 'install-benchmark' do
   code <<-EOF
-  	cd /srv/benchmark
-  	.env/bin/pip install .
+    cd /srv/benchmark
+    .env/bin/pip install .
   EOF
 end
 
@@ -39,6 +39,15 @@ end
 
 pg_database 'benchmark' do
   owner 'benchmark'
+end
+
+template '/srv/benchmark/newrelic.ini' do
+  source 'newrelic.ini.erb'
+  mode '0600'
+  variables(
+    :app => 'benchmark',
+    :license_key => citadel['newrelic/license_key']
+  )
 end
 
 template '/opt/benchmark.sh' do

@@ -4,6 +4,7 @@ export TARGET_DB=postgresql://benchmark:benchmark@localhost/benchmark
 export INITIAL_DEBITS=<%= node['benchmark']['initial_debits'] %>
 export INITIAL_CREDITS=<%= node['benchmark']['initial_credits'] %>
 export SAMPLE=<%= node['benchmark']['sample'] %>
+export NEWRELIC_FILE=/srv/benchmark/newrelic.ini
 
 cd /srv/benchmark
 source .env/bin/activate
