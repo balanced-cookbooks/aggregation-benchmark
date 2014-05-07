@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd /srv/benchmark
+source .env/bin/activate
+python -m benchmark.main original > /tmp/original.log

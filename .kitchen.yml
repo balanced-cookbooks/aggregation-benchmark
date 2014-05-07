@@ -1,8 +1,12 @@
 ---
 driver:
-  name: vagrant
-  customize:
-    memory: 1024
+  name: ec2
+  aws_ssh_key_id: <%= ENV['KITCHEN_KEY_PAIR_NAME'] || 'travis' %>
+  ssh_key: <%= ENV['KITCHEN_SSH_KEY'] || 'travis.pem' %>
+  region: us-west-1
+  availability_zone: us-west-1a
+  flavor_id: 'c3.large'
+  require_chef_omnibus: true
 
 provisioner:
   name: chef_solo
