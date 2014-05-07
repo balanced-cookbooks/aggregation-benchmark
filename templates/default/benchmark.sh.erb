@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export TARGET_DB=postgresql://benchmark:benchmark@localhost/benchmark
+export INITIAL_DEBITS=<%= node['benchmark']['initial_debits'] %>
+export INITIAL_CREDITS=<%= node['benchmark']['initial_credits'] %>
+export SAMPLE=<%= node['benchmark']['sample'] %>
+
+cd /srv/benchmark
+source .env/bin/activate
+python -m benchmark.main original --init-debits $INITIAL_DEBITS --init-credits $INITIAL_CREDITS --sample $SAMPLE > /tmp/original.log

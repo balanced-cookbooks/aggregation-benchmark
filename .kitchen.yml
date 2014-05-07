@@ -5,7 +5,7 @@ driver:
   ssh_key: <%= ENV['KITCHEN_SSH_KEY'] || 'travis.pem' %>
   region: us-west-1
   availability_zone: us-west-1a
-  flavor_id: 'c3.large'
+  flavor_id: 'm3.2xlarge'
   require_chef_omnibus: true
 
 provisioner:

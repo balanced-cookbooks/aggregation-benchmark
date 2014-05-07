@@ -6,6 +6,8 @@ include_recipe 'balanced-postgresql::client'
 include_recipe 'python'
 include_recipe 'git'
 
+package 'libzmq-dev'
+
 directory '/srv' do
   action :create
 end
